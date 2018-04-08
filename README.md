@@ -1,4 +1,3 @@
-Study for End-to-End Memory Network
+# End-to-End Memory Network
 
-
-if you want to using for korean stories, maybe you must changing parsing data function.
+![](/Notebooks/figs/E2EMN.png)
