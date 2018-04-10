@@ -7,7 +7,9 @@ import random
 flatten = lambda l: [item for sublist in l for item in sublist]
 
 
-def bAbI_data_loader(path, vocab=None):
+def bAbI_data_loader(path, vocab=None, sos=None, eos=None):
+
+    assert ((isinstance(sos, str) and isinstance(eos, str)) == True) or ((sos and eos) is None), print('error')
     try:
         with open(path, 'r', encoding='utf-8') as file:
             data = file.readlines()
@@ -28,14 +30,13 @@ def bAbI_data_loader(path, vocab=None):
             if '?' in line:
                 q, a, support = line.split('\t')
                 q = q.lower().strip().replace('?', '').split() + ['?']
-                a = a.lower().strip().split() + ['</s>']
+                a = a.lower().strip().split() + [eos] if eos else a.lower().strip().split()
                 support = int(support)
                 story_temp = deepcopy(story)
                 data_temp.append([story_temp, q, a, support])
             else:
-                sentence = line.lower().replace('.', '').split() + ['</s>']
+                sentence = line.lower().replace('.', '').split() + [eos] if eos else line.lower().replace('.', '').split()
                 story.append(sentence)
-
     except:
         print('check data')
         return None
@@ -43,20 +44,25 @@ def bAbI_data_loader(path, vocab=None):
     if vocab:
         data, vocab = bAbI_build_vocab(data_temp, vocab)
     else:
-        data, vocab = bAbI_build_vocab(data_temp)
+        data, vocab = bAbI_build_vocab(data_temp, sos=sos, eos=eos)
 
     return data, vocab
 
 
-def bAbI_build_vocab(data, vocab=None):
+def bAbI_build_vocab(data, vocab=None, **kwargs):
     if vocab is None:
+        sos = kwargs['sos']
+        eos = kwargs['eos']
         story, q, a, s = list(zip(*data))
         vocab = list(set(flatten(flatten(story)) + flatten(q) + flatten(a)))
-        word2idx = {'<pad>': 0, '<unk>': 1, '<s>': 2, '</s>': 3}
+        if sos and eos:
+            word2idx = {'<pad>': 0, '<unk>': 1, '<s>': 2, '</s>': 3}
+        else:
+            word2idx = {'<pad>': 0, '<unk>': 1}
+
         for word in vocab:
             if word2idx.get(word) is None:
                 word2idx[word] = len(word2idx)
-        idx2word = {v: k for k, v in word2idx.items()}
     else:
         word2idx = vocab
 
