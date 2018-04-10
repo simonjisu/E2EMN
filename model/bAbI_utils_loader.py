@@ -1,3 +1,7 @@
+# -*- coding utf-8 -*-
+# author: simonjisu
+# date: 18.04.11
+
 import torch
 from torch.autograd import Variable
 from copy import deepcopy
@@ -9,7 +13,13 @@ flatten = lambda l: [item for sublist in l for item in sublist]
 class bAbIDataset(object):
     def __init__(self, path, train=True, vocab=None, sos=None, eos=None, return_masks=False):
         """
-        return_masks: if True, returns masked of batches
+        example:
+
+        train(True): if you are in testing, please insert False
+        vocab(None): if you are in testing, please insert [self.word2idx], self = training vocab in bAbIDataset class
+        sos(None): start of sentence token
+        eos(None): end of sentence token
+        return_masks(False): if True, returns masked of batches
         """
         self.train = train
         self.return_masks = return_masks
@@ -158,7 +168,7 @@ class bAbIDataset(object):
         mask = (temp == 0).astype(np.byte)
         return temp.tolist(), mask.tolist()
 
-    def pad_to_story(self, test_data, w2idx, no_batch=True):  # this is for inference
+    def pad_to_story(self, test_data, no_batch=True):  # this is for inference
         """
         if return_masks == True:
             return: stories(list), stories_masks(list), questions, questions_masks, answers, supports
@@ -173,14 +183,14 @@ class bAbIDataset(object):
 
         stories, stories_masks = [], []
         for i in range(len(test_data)):
-            story_array, story_mask = self.get_batch_array(self.get_fixed_array(story[i], w2idx), no_batch, max_story,
+            story_array, story_mask = self.get_batch_array(self.get_fixed_array(story[i], self.word2idx), no_batch, max_story,
                                                            max_len)
             stories.append(story_array)
             stories_masks.append(story_mask)
 
-        questions, questions_masks = self.get_batch_array(self.get_fixed_array(q, w2idx), no_batch, len(test_data),
+        questions, questions_masks = self.get_batch_array(self.get_fixed_array(q, self.word2idx), no_batch, len(test_data),
                                                           max_q)
-        answers, _ = self.get_batch_array(self.get_fixed_array(a, w2idx), no_batch, len(test_data), max_a)
+        answers, _ = self.get_batch_array(self.get_fixed_array(a, self.word2idx), no_batch, len(test_data), max_a)
 
         if self.return_masks:
             return stories, stories_masks, questions, questions_masks, answers, s
