@@ -23,6 +23,7 @@ class bAbIDataset(object):
         """
         self.train = train
         self.return_masks = return_masks
+        self.max_story_len = 0
 
         if self.train:
             data, vocab = self.bAbI_data_loader(path, vocab=None, sos=sos, eos=eos)
@@ -33,6 +34,7 @@ class bAbIDataset(object):
         self.word2idx = vocab
         self.idx2word = {v: k for k, v in self.word2idx.items()}
         self.data = data
+
 
     def __len__(self):
         return len(self.data)
@@ -49,6 +51,7 @@ class bAbIDataset(object):
 
         data_temp = []
         story = []
+
 
         try:
             for line in data:
@@ -95,11 +98,14 @@ class bAbIDataset(object):
         else:
             word2idx = vocab
 
+        self.max_story_len = max(set([len(s) for s in list(zip(*data))[0]]))
+
         for d in data:
             # d[0]: stories
             # d[1]: questions
             # d[2]: answer
             # d[3]: support
+
             for i, story in enumerate(d[0]):
                 d[0][i] = self._transfer2idx(story, word2idx)
 
