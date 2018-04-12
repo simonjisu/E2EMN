@@ -23,7 +23,7 @@ class bAbIDataset(object):
         """
         self.train = train
         self.return_masks = return_masks
-        self.max_story_len = 0
+        # self.max_story_len = 0
 
         if self.train:
             data, vocab = self.bAbI_data_loader(path, vocab=None, sos=sos, eos=eos)
@@ -98,7 +98,7 @@ class bAbIDataset(object):
         else:
             word2idx = vocab
 
-        self.max_story_len = max(set([len(s) for s in list(zip(*data))[0]]))
+        # self.max_story_len = max(set([len(s) for s in list(zip(*data))[0]]))
 
         for d in data:
             # d[0]: stories
@@ -138,8 +138,8 @@ class bAbIDataset(object):
 
         stories, stories_masks = [], []
         for i in range(len(batch)):
-            story_array, story_mask = self.get_batch_array(self.get_fixed_array(story[i], w2idx), no_batch, max_story,
-                                                           max_len)
+            story_array, story_mask = self.get_batch_array(self.get_fixed_array(story[i], w2idx), 
+                                                           no_batch, max_story, max_len)
             stories.append(story_array)
             stories_masks.append(story_mask)
 
@@ -213,6 +213,8 @@ class bAbIDataLoader(object):
         self.batch_size = batch_size
         self.shuffle = shuffle
         self.to_tensor = to_tensor
+        self.word2idx = dataset.word2idx
+        self.idx2word = dataset.idx2word
 
     def _to_tensor(self, x):
         return Variable(torch.LongTensor(x))
@@ -228,10 +230,11 @@ class bAbIDataLoader(object):
             sindex = temp
             if self.to_tensor:
                 if self.train:
-                    batchs = self.dataset.pad_to_batch(batch, self.dataset.word2idx)
+                    batchs = self.dataset.pad_to_batch(batch, self.word2idx)
                     yield [self._to_tensor(x) for x in batchs]
                 else:
-                    batchs = self.dataset.pad_to_story(batch, self.dataset.word2idx)
+
+                    batchs = self.dataset.pad_to_story(batch)
                     if self.return_masks:
                         yield [[self._to_tensor(y) for y in x] for x in batchs[:2]] + \
                                 [self._to_tensor(x) for x in batchs[2:]]
@@ -245,10 +248,10 @@ class bAbIDataLoader(object):
             batch = self.data[sindex:]
             if self.to_tensor:
                 if self.train:
-                    batchs = self.dataset.pad_to_batch(batch, self.dataset.word2idx)
+                    batchs = self.dataset.pad_to_batch(batch, self.word2idx)
                     yield [self._to_tensor(x) for x in batchs]
                 else:
-                    batchs = self.dataset.pad_to_story(batch, self.dataset.word2idx)
+                    batchs = self.dataset.pad_to_story(batch)
                     if self.return_masks:
                         yield [[self._to_tensor(y) for y in x] for x in batchs[:2]] + \
                                 [self._to_tensor(x) for x in batchs[2:]]
