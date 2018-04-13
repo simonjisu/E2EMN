@@ -35,7 +35,6 @@ class bAbIDataset(object):
         self.idx2word = {v: k for k, v in self.word2idx.items()}
         self.data = data
 
-
     def __len__(self):
         return len(self.data)
 
@@ -260,3 +259,12 @@ class bAbIDataLoader(object):
                                 [self._to_tensor(x) for x in batchs[1:]]
             else:
                 yield batch
+
+    def __getitem__(self, idx):
+        batchs = self.dataset.pad_to_story([self.data[idx]])
+        if self.return_masks:
+            return [[self._to_tensor(y) for y in x] for x in batchs[:2]] + \
+                  [self._to_tensor(x) for x in batchs[2:]]
+        else:
+            return [[self._to_tensor(x) for x in batchs[0]]] + \
+                  [self._to_tensor(x) for x in batchs[1:]]
