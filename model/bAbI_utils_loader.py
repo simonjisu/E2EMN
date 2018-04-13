@@ -23,7 +23,7 @@ class bAbIDataset(object):
         """
         self.train = train
         self.return_masks = return_masks
-        # self.max_story_len = 0
+        self.max_story_len = 0
 
         if self.train:
             data, vocab = self.bAbI_data_loader(path, vocab=None, sos=sos, eos=eos)
@@ -98,7 +98,7 @@ class bAbIDataset(object):
         else:
             word2idx = vocab
 
-        # self.max_story_len = max(set([len(s) for s in list(zip(*data))[0]]))
+        self.max_story_len = max(set([len(s) for s in list(zip(*data))[0]]))
 
         for d in data:
             # d[0]: stories
