@@ -8,6 +8,19 @@ import torch.nn.functional as F
 class E2EMN(nn.Module):
     def __init__(self, vocab_size, embed_size, n_hops=3, encoding_method='basic', temporal=True, \
                  use_cuda=False, max_story_len=None):
+        """
+        https://arxiv.org/pdf/1503.08895.pdf
+
+        ------------------------------------
+        vocab_size: [int], vocaburary size
+        embed_size: [int], embedding size
+        n_hops: [int], multiple computational steps
+        encoding_method: [string], "basic" or "pe", "pe" means position encoding
+        temporal: [boolean], Use temporal encoding method
+        use_cuda: [boolean], GPU option
+        max_story_len: [int], max story length in total data set, it is used for determining embedding size
+                       of temporal encoding. Find it at "bAbIDataset" class, self.max_story_len
+        """
         super(E2EMN, self).__init__()
 
         self.vocab_size = vocab_size
@@ -24,7 +37,8 @@ class E2EMN(nn.Module):
 
         # TE: temporal encoding
         if self.te:
-            assert max_story_len is not None, 'must have a fixed story_len, insert "max_story_len" as a number'
+            assert max_story_len is not None, \
+                'must have a fixed story_len, insert "max_story_len" as a number, find it at "bAbIDataset" class'
             assert isinstance(max_story_len, int), '"max_story_len" must be a integer'
 
             self.embed_A_T = nn.Embedding(max_story_len + 1, self.embed_size, padding_idx=0)
@@ -59,6 +73,7 @@ class E2EMN(nn.Module):
         return te_idx_matrix
 
     def _pe_requirements(self, stories_masks):
+        # position encoding
         if stories_masks is not None:
             pe_word_lengths = stories_masks.eq(0).sum(2)  # B, n : byte tensor
         else:
@@ -104,7 +119,7 @@ class E2EMN(nn.Module):
         questions, questions_masks: B, T_q
         """
         # init some requirements
-        te_idx_matrix = self._temporal_encoding_requirements(stories_masks)
+        te_idx_matrix = self._temporal_encoding_requirements(stories_masks)  # B, n
         pe_word_lengths = self._pe_requirements(stories_masks)  # B, n
 
         # Start Learning
@@ -121,7 +136,7 @@ class E2EMN(nn.Module):
             for i, inputs in enumerate(stories):  # iteration of batch
                 # inputs: n, T_c
                 embeded_A = self.embed_A(inputs)  # n, T_c, d
-                embeded_C = self.embed_C(inputs)
+                embeded_C = self.embed_C(inputs)  # n, T_c, d
                 # basic or PE
                 m = self.encoding2memory(embeded_A, pe_word_lengths[i])  # n, d
                 c = self.encoding2memory(embeded_C, pe_word_lengths[i])  # n, d
@@ -142,7 +157,7 @@ class E2EMN(nn.Module):
             score = torch.bmm(batch_memories, o_list[-1].unsqueeze(2))
             probs = F.softmax(score, dim=1)  # p: B, n, 1
 
-            # output: element-wies mul & sum (B, n, d) x (B, n, 1) = B, n, d > B, d
+            # output: element-wies mul & sum (B, n, d) x (B, n, 1) = B, n, d --> B, d
             o = torch.sum(batch_contexts * probs, 1)
 
             o_next = o_list[-1] + o
