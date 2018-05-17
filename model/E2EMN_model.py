@@ -1,7 +1,6 @@
 # -*- coding utf-8 -*-
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
 import torch.nn.functional as F
 
 
@@ -52,18 +51,17 @@ class E2EMN(nn.Module):
 
     def _weight_init(self):
         for x in [self.embed_A, self.embed_B, self.embed_C]:
-            nn.init.normal(x.weight, mean=0, std=0.1)
+            nn.init.normal_(x.weight, mean=0, std=0.1)
         if self.te:
             for x in [self.embed_A_T, self.embed_C_T]:
-                nn.init.normal(x.weight, mean=0, std=0.1)
+                nn.init.normal_(x.weight, mean=0, std=0.1)
 
     def _temporal_encoding_requirements(self, stories_masks):
         # temporal encoding
         if self.te:
             story_len = stories_masks.size(1)
             temp = stories_masks.eq(0).sum(2)  # B, n : byte tensor
-            te_idx_matrix = Variable(torch.arange(1, story_len + 1).repeat(temp.size(0)).view(temp.size()), \
-                                     requires_grad=False).long()
+            te_idx_matrix = torch.arange(1, story_len + 1).repeat(temp.size(0)).view(temp.size()).long()
             if self.use_cuda:
                 te_idx_matrix = te_idx_matrix.cuda()
             te_idx_matrix = te_idx_matrix * temp.ge(1).long()  # B, n
@@ -92,8 +90,8 @@ class E2EMN(nn.Module):
             assert word_length is not None, 'insert stories_masks when forward'
 
             T_c, d = embeded_x.size()[1:]
-            j = Variable(torch.arange(1, T_c + 1).unsqueeze(1).repeat(1, d), requires_grad=False)
-            k = Variable(torch.arange(1, d + 1).unsqueeze(1).repeat(1, T_c).t(), requires_grad=False)
+            j = torch.arange(1, T_c + 1).unsqueeze(1).repeat(1, d)
+            k = torch.arange(1, d + 1).unsqueeze(1).repeat(1, T_c).t()
             if self.use_cuda:
                 j, k = j.cuda(), k.cuda()
 
@@ -101,7 +99,7 @@ class E2EMN(nn.Module):
             for embed, J in zip(embeded_x, word_length.float()):  # iteration of n size
                 # embed: T_c d
                 # J: scalar
-                if J.eq(0).data[0]:  # all words are pad data, which means word_length = 0
+                if J.eq(0).item():  # all words are pad data, which means word_length = 0
                     embeded_x_pe.append(embed)
                 else:
                     l = (torch.ones_like(embed).float() - j / J) - (k / d) * (torch.ones_like(embed) - (2 * j) / J)

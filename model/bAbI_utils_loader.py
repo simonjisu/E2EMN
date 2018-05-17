@@ -3,7 +3,6 @@
 # date: 18.04.11
 
 import torch
-from torch.autograd import Variable
 from copy import deepcopy
 import numpy as np
 import random
@@ -216,7 +215,7 @@ class bAbIDataLoader(object):
         self.idx2word = dataset.idx2word
 
     def _to_tensor(self, x):
-        return Variable(torch.LongTensor(x))
+        return torch.LongTensor(x)
 
     def load(self):
         if self.shuffle: random.shuffle(self.data)
