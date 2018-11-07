@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class E2EMN(nn.Module):
+class MEMN2N(nn.Module):
     def __init__(self, vocab_size, embed_size, n_hops=3, encoding_method='basic', temporal=True, \
                  use_cuda=False, max_story_len=None):
         """

@@ -54,4 +54,5 @@ fabric.properties`
 __pycache__
 .ipynb_checkpoints/
 data/novel/*
-workings/*
+saved_models/*
+

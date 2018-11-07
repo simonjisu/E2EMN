@@ -1,0 +1,16 @@
+nohup python3 -u main.py \
+    -root "./data/QA_bAbI_tasks/en-valid-10k/" \
+    -task 1 \
+    -bs 32 \
+    -bs 50 \
+    -cuda \
+    -emd 20 \
+    -wstyle "adjacent" \
+    -encmth "bow" \
+    -thres 5 \
+    -lr 0.01 \
+    -stp 100 \
+    -anl 0.5 \
+    -save \
+    -savebest \
+    -svp "./saved_models/adj/bow/taks1.model" > ./trainlog/adj/bow/task1.log &
