@@ -1,7 +1,9 @@
+# -*- coding utf-8 -*-
+# author: simonjisu
+# date: 18.11.08
+
 import torch
 import torch.nn as nn
-
-
 
 class MEMN2N(nn.Module):
     def __init__(self, vocab_size, embed_size, n_hops=3, weight_style='adjacent',

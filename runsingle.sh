@@ -1,4 +1,4 @@
-nohup python3 -u main.py \
+nohup python3 -u ./memn2n/main.py \
     -root "./data/QA_bAbI_tasks/en-valid-10k/" \
     -task 1 \
     -bs 32 \

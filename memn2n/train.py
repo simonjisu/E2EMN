@@ -1,19 +1,23 @@
-# coding utf-8
+# -*- coding utf-8 -*-
+# author: simonjisu
+# date: 18.11.08
+
 # import packages
 import os
 import time
 import torch
+import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 
-from .model import MEMN2N
-from .bAbIDataSet_utils import bAbI
-from .utils import get_story_idx
+from model import MEMN2N
+from bAbIDataSet_utils import bAbI
+from utils import get_story_idx
 
 def import_data(config, device, is_test=False):
     babi = bAbI()
     train, valid, test = babi.splits(root=config.ROOT, 
-                                     task=TASK, 
+                                     task=config.TASK, 
                                      fix_maxlen_story=config.FIX_STORY,
                                      device=device)
     train_loader, valid_loader, test_loader = babi.iters(train, valid, test, config.BATCH)
@@ -32,7 +36,7 @@ def build_model(config, vocab, maxlen, device):
                    pad_idx=vocab.stoi['<pad>']).to(device)
 
     loss_function = nn.NLLLoss(ignore_index=vocab.stoi['<pad>'], reduction='sum')
-    optimizer = optim.SGD(model.parameters(), lr=LR)
+    optimizer = optim.SGD(model.parameters(), lr=config.LR)
     scheduler = optim.lr_scheduler.MultiStepLR(gamma=config.ANNEAL, milestones=[25, 50, 75], 
                                                optimizer=optimizer)
     
@@ -73,7 +77,7 @@ def train_model(config, model, vocab, loss_function, optimizer, scheduler, train
     ls = True if config.LS else False
     print('--'*20)
     start_time = time.time()
-    for i, step in enumerate(range(STEP)):
+    for step in range(config.STEP):
         scheduler.step()
         train_loss = run_step(config, vocab, train_loader, model, loss_function, optimizer, ls=ls)
         valid_loss = validation(config, vocab, valid_loader, model, loss_function, ls=ls)

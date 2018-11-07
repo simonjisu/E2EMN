@@ -4,7 +4,7 @@
 
 import os
 from copy import deepcopy
-from .vocabulary import Vocab
+from vocabulary import Vocab
 import torch
 import torch.utils.data as torchdata
 
