@@ -14,11 +14,11 @@ if __name__ == "__main__":
                         default='./data/QA_bAbI_tasks/en-valid-10k/')
     parser.add_argument('-task', '--TASK', help='Training task number from 1~20, if "0" do all task',
                         type=int, default=1)
-    parser.add_argument('-fixlen', '--FIX_STORY', help='If "None" dont to fix story lengths')
+    parser.add_argument('-fixlen', '--FIX_STORY', help='If "0" dont fix story lengths', type=int, default=50)
     parser.add_argument('-bs', '--BATCH', help='Batch Size', type=int, default=32)
     parser.add_argument('-cuda', '--USE_CUDA', help='Use cuda if exists', action='store_true')
     parser.add_argument('-emptymem', '--EMPTY_CUDA_MEMORY', help='Use cuda empty cashce', action='store_true')
-
+    
     # model
     parser.add_argument('-emd', '--EMBED', help='Embedding size', type=int, default=20)
     parser.add_argument('-wstyle', '--W_STYLE', help='Weight Sharing Style, "adjacent" or "rnnlike"', type=str, default='adjacent')
@@ -40,11 +40,23 @@ if __name__ == "__main__":
     parser.add_argument('-thres', '--THRES', help='Earlystopping patience number', type=int, default=5)
 
     config = parser.parse_args()
-    print(config)
+    
     if config.USE_CUDA:
         assert config.USE_CUDA == torch.cuda.is_available(), 'cuda is not avaliable.'
     DEVICE = 'cuda' if config.USE_CUDA else None
-
-    train, train_loader, valid_loader = import_data(config, DEVICE, is_test=False)
-    model, loss_function, optimizer, scheduler = build_model(config, train.vocab, train.maxlen_story, DEVICE)
-    train_model(config, model, train.vocab, loss_function, optimizer, scheduler, train_loader, valid_loader)
+    
+    if config.TASK != 0:
+        if config.FIX_STORY == 0:
+            config.FIX_STORY = None
+        print(config)
+        train, train_loader, valid_loader = import_data(config, DEVICE, is_test=False)
+        model, loss_function, optimizer, scheduler = build_model(config, train.vocab, train.maxlen_story, DEVICE)
+        train_model(config, model, train.vocab, loss_function, optimizer, scheduler, train_loader, valid_loader)
+# [vocab issue] for training jointly, share all vocab in the training. have to modify bAbIDataSet_uitls.py
+#     else:
+#         for i in range(1, 21):
+#             config.TASK = i
+#             print(config)
+#             train, train_loader, valid_loader = import_data(config, DEVICE, is_test=False)
+#             model, loss_function, optimizer, scheduler = build_model(config, train.vocab, train.maxlen_story, DEVICE)
+#             train_model(config, model, train.vocab, loss_function, optimizer, scheduler, train_loader, valid_loader)

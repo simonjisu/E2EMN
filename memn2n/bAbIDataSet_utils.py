@@ -26,7 +26,7 @@ class bAbI(object):
         all_datas = []
         story = []
         support_f = lambda x: [int(s) for s in x.split()]
-        answer_f = lambda x: [a for a in x.split(',')]
+#         answer_f = lambda x: [a for a in x.split(',')]  # [task 19] maybe don't need to split , for task 19
         with open(path, 'r', encoding='utf-8') as file:
             data = file.read().splitlines()
             if self.lower:
@@ -40,22 +40,21 @@ class bAbI(object):
                 if '?' in sentence:
                     q, a, s = sentence.split('\t')
                     q = q.strip().replace('?', '').split()
-                    a = answer_f(a)
+#                     a = answer_f(a)  # [task 19] maybe don't need to split , for task 19
+                    a = [a]
                     s = support_f(s)
                     maxlen_query = self.check_maxlen(q, maxlen_query)
                     # sentences are reversed order
                     temp = deepcopy(story)
                     temp = list(zip(*sorted(enumerate(temp), key=lambda x: x[0], reverse=True)))[1]
+                    # only call recent max lengths of sentences
+                    if fix_maxlen_story is not None:
+                        if len(temp) > fix_maxlen_story:
+                            temp = temp[:(fix_maxlen_story-len(temp))]
                     all_datas.append([temp, q, a, s])
                 else:
                     sent = sentence.replace('.', '').split()
-                    if fix_maxlen_story is not None:
-                        if len(story) == fix_maxlen_story:
-                            continue
-                        else:
-                            story.append(sent)
-                    else:
-                        story.append(sent)
+                    story.append(sent)
                     maxlen_sent = self.check_maxlen(sent, maxlen_sent)
         datas = {'datas': all_datas, 
                  'maxlen_story': maxlen_story if fix_maxlen_story is None else fix_maxlen_story,

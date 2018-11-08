@@ -54,7 +54,7 @@ def run_step(config, vocab, loader, model, loss_function, optimizer, ls=False):
         loss = loss_function(nll_loss, answers.view(-1))
         losses.append(loss.item())
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(model.parameters(), 50.0)  # gradient clipping
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 40.0)  # gradient clipping
         optimizer.step()
         
     return np.mean(losses)
