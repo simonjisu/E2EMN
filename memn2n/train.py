@@ -78,10 +78,12 @@ def validation(vocab, loader, model, loss_function, ls=False, is_test=False):
         stories, queries, answers = batch
         stories_idx = get_story_idx(stories, vocab.stoi['<pad>'])        
         a = model(stories, queries, stories_idx, ls=ls)
-        loss = loss_function(torch.log_softmax(a, dim=1), answers.view(-1))
+        pred = torch.log_softmax(a, dim=1)
+        loss = loss_function(pred, answers.view(-1))
         losses.append(loss.item())
+        
         if is_test:
-            score = torch.eq(a.max(1)[1], answers.view(-1))
+            score = torch.eq(pred.max(1)[1], answers.view(-1))
             total += score.size(0)
             correct += score.sum().item()
     if is_test:

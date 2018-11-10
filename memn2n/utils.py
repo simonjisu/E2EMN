@@ -9,7 +9,6 @@ import matplotlib.pylab as plt
 import matplotlib.ticker as ticker
 
 
-
 class Config(object):
     def __init__(self, emd):
         self.ROOT = os.path.join(self.check_path('data'), 'QA_bAbI_tasks/en-valid-10k/')
@@ -53,7 +52,8 @@ def matshow(array):
     fig.colorbar(cax)
     plt.show()
     
-def plot_result(array, stories, questions, predict, answer, hops=3):
+    
+def plot_result(array, stories, questions, predict, answer, support, loss, model_name, task_idx, hops=3):
     """
     array: numpy array
     stories: list stories of tokens
@@ -61,23 +61,26 @@ def plot_result(array, stories, questions, predict, answer, hops=3):
     predict, answer = string
     """
     sents = [' '.join(x) for x in stories]
-    f, (ax_fig, ax_text) = plt.subplots(2, 1, gridspec_kw = {'height_ratios':[4, 1]}, dpi=100)
+    f, (ax_fig, ax_text) = plt.subplots(2, 1, figsize=(14, 6), 
+                                        gridspec_kw = {'height_ratios':[3, 1]}, dpi=100)
     cax = ax_fig.matshow(array, aspect="auto")
     f.colorbar(cax, ax=ax_fig)
+    f.suptitle('TASK: {}'.format(task_idx), fontdict={'fontsize': 20}, y=1.05)
     ax_fig.set_yticklabels([''] + sents)
     ax_fig.set_xticklabels([''] + ['hop {}'.format(h) for h in range(1, hops+1)])
     ax_fig.xaxis.set_major_locator(ticker.MultipleLocator(1))
     ax_fig.yaxis.set_major_locator(ticker.MultipleLocator(1))
     for (i, j), z in np.ndenumerate(array):
         ax_fig.text(j, i, '{:0.2f}'.format(z), ha='center', va='center', 
-                    fontdict={'color':'red', 'fontsize': 8})
+                    fontdict={'color':'red', 'fontsize': 10})
 
 
     ax_text.axis('off')
-    ax_text.text(-0, 0, 'Question: '+' '.join(questions)+'?', fontdict={'fontsize': 14})
-    ax_text.text(-0, -0.5, 'Answer: '+ answer, fontdict={'fontsize': 14})
-    ax_text.text(-0, -1, 'Predict: '+ predict, fontdict={'fontsize': 14})
-
+    ax_text.set_title('[Model] {} - loss {:.3f}'.format(model_name, loss), fontdict={'fontsize': 14}, loc='left')
+    ax_text.text(-0.2, 0, 'Question: '+' '.join(questions)+'?', fontdict={'fontsize': 12})
+    ax_text.text(-0.2, -0.5, 'Answer: '+ answer, fontdict={'fontsize': 12})
+    ax_text.text(-0.2, -1, 'Predict: '+ predict, fontdict={'fontsize': 12})
+    ax_text.text(-0.2, -1.5, 'Support: '+ str(support), fontdict={'fontsize': 12})
     f.tight_layout()
     plt.show()
     plt.close()
@@ -88,15 +91,17 @@ def run_single_example(stories, questions, model, dataset):
     s_idx = get_story_idx(s, model.pad_idx)
     pred, ps = model(s, q, s_idx, return_p=True)
     attns = torch.stack([x.detach().masked_select(s_idx.ge(1)) for x in ps]).t().numpy()
-    
-    return pred.max(1)[1].item(), attns
+    loss = torch.log_softmax(pred, dim=1).max(1)
+    return loss[0].item(), loss[1].item(), attns, 
+
 
 def get_words(x, vocab, unk_idx=1):
     try:
         return vocab.itos[x]
     except:
         return vocab.itos[unk_idx]
-    
+
+
 def decode(idxes, vocab):
     if not isinstance(idxes, list):
         idxes = [idxes]

@@ -1,0 +1,248 @@
+./trainlog/adjacent/bow done!
+./trainlog/adjacent/pe_te done!
+./trainlog/rnnlike/bow done!
+./trainlog/rnnlike/pe_te done!
+./saved_models/adjacent/bow done!
+./saved_models/adjacent/pe_te done!
+./saved_models/rnnlike/bow done!
+./saved_models/rnnlike/pe_te done!
+---------- task: 1 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 1 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task1.model" > ./trainlog/adjacent/bow/task1.log
+done!
+---------- task: 2 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 2 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task2.model" > ./trainlog/adjacent/bow/task2.log
+done!
+---------- task: 3 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 3 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task3.model" > ./trainlog/adjacent/bow/task3.log
+done!
+---------- task: 4 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 4 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task4.model" > ./trainlog/adjacent/bow/task4.log
+done!
+---------- task: 5 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 5 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task5.model" > ./trainlog/adjacent/bow/task5.log
+done!
+---------- task: 6 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 6 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task6.model" > ./trainlog/adjacent/bow/task6.log
+done!
+---------- task: 7 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 7 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task7.model" > ./trainlog/adjacent/bow/task7.log
+done!
+---------- task: 8 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 8 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task8.model" > ./trainlog/adjacent/bow/task8.log
+done!
+---------- task: 9 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 9 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task9.model" > ./trainlog/adjacent/bow/task9.log
+done!
+---------- task: 10 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 10 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task10.model" > ./trainlog/adjacent/bow/task10.log
+done!
+---------- task: 11 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 11 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task11.model" > ./trainlog/adjacent/bow/task11.log
+done!
+---------- task: 12 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 12 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task12.model" > ./trainlog/adjacent/bow/task12.log
+done!
+---------- task: 13 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 13 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task13.model" > ./trainlog/adjacent/bow/task13.log
+done!
+---------- task: 14 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 14 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task14.model" > ./trainlog/adjacent/bow/task14.log
+done!
+---------- task: 15 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 15 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task15.model" > ./trainlog/adjacent/bow/task15.log
+done!
+---------- task: 16 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 16 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task16.model" > ./trainlog/adjacent/bow/task16.log
+done!
+---------- task: 17 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 17 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task17.model" > ./trainlog/adjacent/bow/task17.log
+done!
+---------- task: 18 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 18 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task18.model" > ./trainlog/adjacent/bow/task18.log
+done!
+---------- task: 19 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 19 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task19.model" > ./trainlog/adjacent/bow/task19.log
+done!
+---------- task: 20 adjacent bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 20 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/bow/task20.model" > ./trainlog/adjacent/bow/task20.log
+done!
+---------- task: 1 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 1 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task1.model" > ./trainlog/adjacent/pe_te/task1.log
+done!
+---------- task: 2 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 2 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task2.model" > ./trainlog/adjacent/pe_te/task2.log
+done!
+---------- task: 3 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 3 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task3.model" > ./trainlog/adjacent/pe_te/task3.log
+done!
+---------- task: 4 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 4 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task4.model" > ./trainlog/adjacent/pe_te/task4.log
+done!
+---------- task: 5 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 5 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task5.model" > ./trainlog/adjacent/pe_te/task5.log
+done!
+---------- task: 6 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 6 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task6.model" > ./trainlog/adjacent/pe_te/task6.log
+done!
+---------- task: 7 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 7 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task7.model" > ./trainlog/adjacent/pe_te/task7.log
+done!
+---------- task: 8 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 8 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task8.model" > ./trainlog/adjacent/pe_te/task8.log
+done!
+---------- task: 9 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 9 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task9.model" > ./trainlog/adjacent/pe_te/task9.log
+done!
+---------- task: 10 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 10 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task10.model" > ./trainlog/adjacent/pe_te/task10.log
+done!
+---------- task: 11 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 11 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task11.model" > ./trainlog/adjacent/pe_te/task11.log
+done!
+---------- task: 12 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 12 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task12.model" > ./trainlog/adjacent/pe_te/task12.log
+done!
+---------- task: 13 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 13 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task13.model" > ./trainlog/adjacent/pe_te/task13.log
+done!
+---------- task: 14 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 14 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task14.model" > ./trainlog/adjacent/pe_te/task14.log
+done!
+---------- task: 15 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 15 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task15.model" > ./trainlog/adjacent/pe_te/task15.log
+done!
+---------- task: 16 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 16 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task16.model" > ./trainlog/adjacent/pe_te/task16.log
+done!
+---------- task: 17 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 17 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task17.model" > ./trainlog/adjacent/pe_te/task17.log
+done!
+---------- task: 18 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 18 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task18.model" > ./trainlog/adjacent/pe_te/task18.log
+done!
+---------- task: 19 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 19 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task19.model" > ./trainlog/adjacent/pe_te/task19.log
+done!
+---------- task: 20 adjacent pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 20 -bs 32 -cuda -emd 20 -wstyle "adjacent" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/adjacent/pe_te/task20.model" > ./trainlog/adjacent/pe_te/task20.log
+done!
+---------- task: 1 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 1 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task1.model" > ./trainlog/rnnlike/bow/task1.log
+done!
+---------- task: 2 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 2 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task2.model" > ./trainlog/rnnlike/bow/task2.log
+done!
+---------- task: 3 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 3 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task3.model" > ./trainlog/rnnlike/bow/task3.log
+done!
+---------- task: 4 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 4 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task4.model" > ./trainlog/rnnlike/bow/task4.log
+done!
+---------- task: 5 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 5 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task5.model" > ./trainlog/rnnlike/bow/task5.log
+done!
+---------- task: 6 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 6 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task6.model" > ./trainlog/rnnlike/bow/task6.log
+done!
+---------- task: 7 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 7 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task7.model" > ./trainlog/rnnlike/bow/task7.log
+done!
+---------- task: 8 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 8 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task8.model" > ./trainlog/rnnlike/bow/task8.log
+done!
+---------- task: 9 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 9 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task9.model" > ./trainlog/rnnlike/bow/task9.log
+done!
+---------- task: 10 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 10 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task10.model" > ./trainlog/rnnlike/bow/task10.log
+done!
+---------- task: 11 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 11 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task11.model" > ./trainlog/rnnlike/bow/task11.log
+done!
+---------- task: 12 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 12 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task12.model" > ./trainlog/rnnlike/bow/task12.log
+done!
+---------- task: 13 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 13 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task13.model" > ./trainlog/rnnlike/bow/task13.log
+done!
+---------- task: 14 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 14 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task14.model" > ./trainlog/rnnlike/bow/task14.log
+done!
+---------- task: 15 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 15 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task15.model" > ./trainlog/rnnlike/bow/task15.log
+done!
+---------- task: 16 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 16 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task16.model" > ./trainlog/rnnlike/bow/task16.log
+done!
+---------- task: 17 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 17 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task17.model" > ./trainlog/rnnlike/bow/task17.log
+done!
+---------- task: 18 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 18 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task18.model" > ./trainlog/rnnlike/bow/task18.log
+done!
+---------- task: 19 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 19 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task19.model" > ./trainlog/rnnlike/bow/task19.log
+done!
+---------- task: 20 rnnlike bow ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 20 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "bow"  -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/bow/task20.model" > ./trainlog/rnnlike/bow/task20.log
+done!
+---------- task: 1 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 1 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task1.model" > ./trainlog/rnnlike/pe_te/task1.log
+done!
+---------- task: 2 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 2 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task2.model" > ./trainlog/rnnlike/pe_te/task2.log
+done!
+---------- task: 3 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 3 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task3.model" > ./trainlog/rnnlike/pe_te/task3.log
+done!
+---------- task: 4 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 4 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task4.model" > ./trainlog/rnnlike/pe_te/task4.log
+done!
+---------- task: 5 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 5 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task5.model" > ./trainlog/rnnlike/pe_te/task5.log
+done!
+---------- task: 6 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 6 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task6.model" > ./trainlog/rnnlike/pe_te/task6.log
+done!
+---------- task: 7 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 7 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task7.model" > ./trainlog/rnnlike/pe_te/task7.log
+done!
+---------- task: 8 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 8 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task8.model" > ./trainlog/rnnlike/pe_te/task8.log
+done!
+---------- task: 9 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 9 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task9.model" > ./trainlog/rnnlike/pe_te/task9.log
+done!
+---------- task: 10 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 10 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task10.model" > ./trainlog/rnnlike/pe_te/task10.log
+done!
+---------- task: 11 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 11 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task11.model" > ./trainlog/rnnlike/pe_te/task11.log
+done!
+---------- task: 12 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 12 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task12.model" > ./trainlog/rnnlike/pe_te/task12.log
+done!
+---------- task: 13 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 13 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task13.model" > ./trainlog/rnnlike/pe_te/task13.log
+done!
+---------- task: 14 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 14 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task14.model" > ./trainlog/rnnlike/pe_te/task14.log
+done!
+---------- task: 15 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 15 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task15.model" > ./trainlog/rnnlike/pe_te/task15.log
+done!
+---------- task: 16 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 16 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task16.model" > ./trainlog/rnnlike/pe_te/task16.log
+done!
+---------- task: 17 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 17 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task17.model" > ./trainlog/rnnlike/pe_te/task17.log
+done!
+---------- task: 18 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 18 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task18.model" > ./trainlog/rnnlike/pe_te/task18.log
+done!
+---------- task: 19 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 19 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task19.model" > ./trainlog/rnnlike/pe_te/task19.log
+done!
+---------- task: 20 rnnlike pe_te ----------
+python3 -u ./memn2n/main.py -root "./data/QA_bAbI_tasks/en-valid-10k/" -task 20 -bs 32 -cuda -emd 20 -wstyle "rnnlike" -encmth "pe" -temporal -thres 5 -lr 0.01 -stp 100 -anl 0.5 -save -savebest -svp "./saved_models/rnnlike/pe_te/task20.model" > ./trainlog/rnnlike/pe_te/task20.log
+done!

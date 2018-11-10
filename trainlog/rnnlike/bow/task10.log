@@ -1,0 +1,28 @@
+Namespace(ANNEAL=0.5, BATCH=32, EMBED=20, EMPTY_CUDA_MEMORY=False, ENC_METHOD='bow', FIX_STORY=50, LR=0.01, LS=False, PRINT_EVERY=1, ROOT='./data/QA_bAbI_tasks/en-valid-10k/', SAVE_BEST=True, SAVE_MODEL=True, SAVE_PATH='./saved_models/rnnlike/bow/task10.model', STEP=100, TASK=10, TEMPROAL=False, THRES=5, USE_CUDA=True, W_STYLE='rnnlike')
+----------------------------------------
+[1/100] (train) loss 34.0330 | (valid) loss 31.0972
+[2/100] (train) loss 30.8803 | (valid) loss 30.6257
+[3/100] (train) loss 29.4378 | (valid) loss 28.7965
+[4/100] (train) loss 27.2313 | (valid) loss 24.8115
+[5/100] (train) loss 25.5256 | (valid) loss 23.8472
+[6/100] (train) loss 24.7818 | (valid) loss 23.2390
+[7/100] (train) loss 24.3909 | (valid) loss 22.9562
+[8/100] (train) loss 24.0492 | (valid) loss 22.6592
+[9/100] (train) loss 23.6417 | (valid) loss 22.3336
+[10/100] (train) loss 22.9436 | (valid) loss 21.3971
+[11/100] (train) loss 21.9527 | (valid) loss 19.9343
+[12/100] (train) loss 20.9829 | (valid) loss 19.4209
+[13/100] (train) loss 20.1879 | (valid) loss 18.2374
+[14/100] (train) loss 19.8184 | (valid) loss 19.3512
+[15/100] (train) loss 19.4957 | (valid) loss 17.5682
+[16/100] (train) loss 19.3085 | (valid) loss 17.5394
+[17/100] (train) loss 19.0600 | (valid) loss 17.3183
+[18/100] (train) loss 18.9652 | (valid) loss 16.7271
+[19/100] (train) loss 18.9147 | (valid) loss 18.3942
+[20/100] (train) loss 18.7415 | (valid) loss 17.4872
+[21/100] (train) loss 18.6914 | (valid) loss 18.0088
+[22/100] (train) loss 18.8497 | (valid) loss 16.8254
+[23/100] (train) loss 18.5655 | (valid) loss 18.0494
+EARLY BREAK: valid loss goes over the patient number 5
+
+Training Excution time with validation: 0 h 0 m 35.5058 s

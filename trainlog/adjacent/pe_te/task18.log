@@ -1,0 +1,41 @@
+Namespace(ANNEAL=0.5, BATCH=32, EMBED=20, EMPTY_CUDA_MEMORY=False, ENC_METHOD='pe', FIX_STORY=50, LR=0.01, LS=False, PRINT_EVERY=1, ROOT='./data/QA_bAbI_tasks/en-valid-10k/', SAVE_BEST=True, SAVE_MODEL=True, SAVE_PATH='./saved_models/adjacent/pe_te/task18.model', STEP=100, TASK=18, TEMPROAL=True, THRES=5, USE_CUDA=True, W_STYLE='adjacent')
+----------------------------------------
+[1/100] (train) loss 25.1596 | (valid) loss 22.9704
+[2/100] (train) loss 22.8764 | (valid) loss 22.7767
+[3/100] (train) loss 22.5701 | (valid) loss 22.4229
+[4/100] (train) loss 22.3109 | (valid) loss 21.8575
+[5/100] (train) loss 21.9778 | (valid) loss 21.0502
+[6/100] (train) loss 20.6314 | (valid) loss 12.1319
+[7/100] (train) loss 7.8632 | (valid) loss 4.2758
+[8/100] (train) loss 4.5921 | (valid) loss 4.0605
+[9/100] (train) loss 4.3198 | (valid) loss 3.9679
+[10/100] (train) loss 4.1926 | (valid) loss 3.9161
+[11/100] (train) loss 4.1143 | (valid) loss 3.8789
+[12/100] (train) loss 4.0581 | (valid) loss 3.8514
+[13/100] (train) loss 4.0116 | (valid) loss 3.8302
+[14/100] (train) loss 3.9741 | (valid) loss 3.8130
+[15/100] (train) loss 3.9430 | (valid) loss 3.7986
+[16/100] (train) loss 3.9162 | (valid) loss 3.7859
+[17/100] (train) loss 3.8926 | (valid) loss 3.7746
+[18/100] (train) loss 3.8719 | (valid) loss 3.7634
+[19/100] (train) loss 3.8524 | (valid) loss 3.7530
+[20/100] (train) loss 3.8326 | (valid) loss 3.7422
+[21/100] (train) loss 3.8141 | (valid) loss 3.7311
+[22/100] (train) loss 3.7973 | (valid) loss 3.7214
+[23/100] (train) loss 3.7810 | (valid) loss 3.7118
+[24/100] (train) loss 3.7636 | (valid) loss 3.7008
+[25/100] (train) loss 3.7450 | (valid) loss 3.6862
+[26/100] (train) loss 3.6499 | (valid) loss 3.6279
+[27/100] (train) loss 3.6164 | (valid) loss 3.6058
+[28/100] (train) loss 3.5941 | (valid) loss 3.5883
+[29/100] (train) loss 3.5719 | (valid) loss 3.5752
+[30/100] (train) loss 3.5553 | (valid) loss 3.5867
+[31/100] (train) loss 3.5315 | (valid) loss 3.5672
+[32/100] (train) loss 3.5183 | (valid) loss 3.5819
+[33/100] (train) loss 3.5081 | (valid) loss 3.5824
+[34/100] (train) loss 3.5014 | (valid) loss 3.5885
+[35/100] (train) loss 3.4887 | (valid) loss 3.5806
+[36/100] (train) loss 3.4785 | (valid) loss 3.5751
+EARLY BREAK: valid loss goes over the patient number 5
+
+Training Excution time with validation: 0 h 3 m 59.3256 s

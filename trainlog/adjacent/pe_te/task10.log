@@ -1,0 +1,35 @@
+Namespace(ANNEAL=0.5, BATCH=32, EMBED=20, EMPTY_CUDA_MEMORY=False, ENC_METHOD='pe', FIX_STORY=50, LR=0.01, LS=False, PRINT_EVERY=1, ROOT='./data/QA_bAbI_tasks/en-valid-10k/', SAVE_BEST=True, SAVE_MODEL=True, SAVE_PATH='./saved_models/adjacent/pe_te/task10.model', STEP=100, TASK=10, TEMPROAL=True, THRES=5, USE_CUDA=True, W_STYLE='adjacent')
+----------------------------------------
+[1/100] (train) loss 33.4344 | (valid) loss 30.5942
+[2/100] (train) loss 29.8768 | (valid) loss 29.6833
+[3/100] (train) loss 28.8184 | (valid) loss 28.4683
+[4/100] (train) loss 26.3240 | (valid) loss 25.1662
+[5/100] (train) loss 23.3883 | (valid) loss 23.5102
+[6/100] (train) loss 22.0155 | (valid) loss 22.6556
+[7/100] (train) loss 21.1521 | (valid) loss 21.9276
+[8/100] (train) loss 20.3577 | (valid) loss 21.2522
+[9/100] (train) loss 19.4388 | (valid) loss 20.4489
+[10/100] (train) loss 18.3608 | (valid) loss 19.2879
+[11/100] (train) loss 17.0788 | (valid) loss 17.4177
+[12/100] (train) loss 15.6650 | (valid) loss 15.4086
+[13/100] (train) loss 14.3774 | (valid) loss 13.7661
+[14/100] (train) loss 13.4316 | (valid) loss 12.8404
+[15/100] (train) loss 12.6662 | (valid) loss 12.1801
+[16/100] (train) loss 12.0808 | (valid) loss 11.8604
+[17/100] (train) loss 11.6157 | (valid) loss 11.5997
+[18/100] (train) loss 11.1786 | (valid) loss 11.7364
+[19/100] (train) loss 10.7979 | (valid) loss 11.5977
+[20/100] (train) loss 10.5341 | (valid) loss 11.3301
+[21/100] (train) loss 10.1979 | (valid) loss 10.1268
+[22/100] (train) loss 10.0918 | (valid) loss 10.2093
+[23/100] (train) loss 9.8666 | (valid) loss 9.9416
+[24/100] (train) loss 9.6872 | (valid) loss 9.4615
+[25/100] (train) loss 9.4890 | (valid) loss 9.6750
+[26/100] (train) loss 7.7274 | (valid) loss 7.8608
+[27/100] (train) loss 7.3534 | (valid) loss 7.5760
+[28/100] (train) loss 7.2514 | (valid) loss 7.6557
+[29/100] (train) loss 7.0925 | (valid) loss 7.6315
+[30/100] (train) loss 7.0387 | (valid) loss 7.6399
+EARLY BREAK: valid loss goes over the patient number 5
+
+Training Excution time with validation: 0 h 3 m 17.1626 s

@@ -1,0 +1,37 @@
+Namespace(ANNEAL=0.5, BATCH=32, EMBED=20, EMPTY_CUDA_MEMORY=False, ENC_METHOD='pe', FIX_STORY=50, LR=0.01, LS=False, PRINT_EVERY=1, ROOT='./data/QA_bAbI_tasks/en-valid-10k/', SAVE_BEST=True, SAVE_MODEL=True, SAVE_PATH='./saved_models/rnnlike/pe_te/task10.model', STEP=100, TASK=10, TEMPROAL=True, THRES=5, USE_CUDA=True, W_STYLE='rnnlike')
+----------------------------------------
+[1/100] (train) loss 34.4172 | (valid) loss 31.0633
+[2/100] (train) loss 30.4976 | (valid) loss 30.2953
+[3/100] (train) loss 29.8295 | (valid) loss 29.9594
+[4/100] (train) loss 29.4682 | (valid) loss 29.6338
+[5/100] (train) loss 28.7263 | (valid) loss 28.4884
+[6/100] (train) loss 26.6815 | (valid) loss 26.5011
+[7/100] (train) loss 24.7447 | (valid) loss 24.0331
+[8/100] (train) loss 23.2673 | (valid) loss 22.6253
+[9/100] (train) loss 22.3067 | (valid) loss 21.7616
+[10/100] (train) loss 21.7238 | (valid) loss 21.4873
+[11/100] (train) loss 21.1865 | (valid) loss 21.0487
+[12/100] (train) loss 20.6761 | (valid) loss 20.4808
+[13/100] (train) loss 19.9685 | (valid) loss 19.9782
+[14/100] (train) loss 19.2457 | (valid) loss 19.0684
+[15/100] (train) loss 18.4768 | (valid) loss 17.1321
+[16/100] (train) loss 17.5279 | (valid) loss 16.1358
+[17/100] (train) loss 16.3403 | (valid) loss 15.4478
+[18/100] (train) loss 15.2345 | (valid) loss 13.6843
+[19/100] (train) loss 14.3743 | (valid) loss 13.1271
+[20/100] (train) loss 13.4986 | (valid) loss 13.4554
+[21/100] (train) loss 12.6718 | (valid) loss 12.6350
+[22/100] (train) loss 11.8263 | (valid) loss 12.9574
+[23/100] (train) loss 11.3939 | (valid) loss 12.1198
+[24/100] (train) loss 10.8419 | (valid) loss 11.8518
+[25/100] (train) loss 10.3059 | (valid) loss 11.1585
+[26/100] (train) loss 6.9847 | (valid) loss 7.4394
+[27/100] (train) loss 6.1378 | (valid) loss 6.7582
+[28/100] (train) loss 5.8416 | (valid) loss 7.1392
+[29/100] (train) loss 5.4565 | (valid) loss 5.8356
+[30/100] (train) loss 5.1349 | (valid) loss 6.3056
+[31/100] (train) loss 4.8317 | (valid) loss 7.9484
+[32/100] (train) loss 4.6734 | (valid) loss 6.0915
+EARLY BREAK: valid loss goes over the patient number 5
+
+Training Excution time with validation: 0 h 3 m 36.7248 s
