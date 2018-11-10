@@ -138,12 +138,14 @@ class MEMN2N(nn.Module):
             if self.te:
                 m += self.temporal_modules['temporal_A'](stories_idx)  # (B, T, d)
                 c += self.temporal_modules['temporal_C'](stories_idx)  # (B, T, d)
-            if ls:
-                # (B, T, d) x (B, d, 1) = (B, T, 1)
-                p = torch.bmm(m, u_next.unsqueeze(2))
-            else:
-                p = self.softmax_layer(torch.bmm(m, u_next.unsqueeze(2)))
-                ps.append(p.squeeze(2))  # [(B, T) for all hops]
+            
+            score = torch.bmm(m, u_next.unsqueeze(2)).squeeze(2)  # (B, T, d) x (B, d, 1) = (B, T, 1)
+            if not ls:
+                # mask all <pad> token to inf , make them 0. (B, T)
+                p = score.masked_fill(stories_idx.eq(self.pad_idx), float('-inf'))
+                p = self.softmax_layer(p)
+                ps.append(p)  # [(B, T) for all hops]
+                p = p.unsqueeze(2)
                 
             o = (c * p).sum(1)  # (B, T, d) * (B, T, 1) = (B, T, d) > (B, d)
             
@@ -156,4 +158,4 @@ class MEMN2N(nn.Module):
         a = self.linear_final(u_next)  # (B, d) > (B, V)
         if return_p:
             return a, ps
-        return torch.log_softmax(a, dim=1)  # use nll loss
+        return a 

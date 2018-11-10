@@ -15,6 +15,12 @@ from bAbIDataSet_utils import bAbI
 from utils import get_story_idx
 
 def import_data(config, device, is_test=False):
+    """
+    if is_test:
+        return: train, test, test_loader
+    else:
+        return: train, train_loader, valid_loade
+    """
     babi = bAbI()
     train, valid, test = babi.splits(root=config.ROOT, 
                                      task=config.TASK, 
@@ -22,11 +28,14 @@ def import_data(config, device, is_test=False):
                                      device=device)
     train_loader, valid_loader, test_loader = babi.iters(train, valid, test, config.BATCH)
     if is_test:
-        return train, test, test_loader
+        return test, test_loader
     else:
         return train, train_loader, valid_loader
     
 def build_model(config, vocab, maxlen, device):
+    """
+    model, loss_function, optimizer, scheduler
+    """
     model = MEMN2N(vocab_size=len(vocab), 
                    embed_size=config.EMBED, 
                    weight_style=config.W_STYLE,
@@ -37,12 +46,13 @@ def build_model(config, vocab, maxlen, device):
 
     loss_function = nn.NLLLoss(ignore_index=vocab.stoi['<pad>'], reduction='sum')
     optimizer = optim.SGD(model.parameters(), lr=config.LR)
+#     optimizer = optim.Adam(model.parameters(), lr=config.LR)
     scheduler = optim.lr_scheduler.MultiStepLR(gamma=config.ANNEAL, milestones=[25, 50, 75], 
                                                optimizer=optimizer)
     
     return model, loss_function, optimizer, scheduler
 
-def run_step(config, vocab, loader, model, loss_function, optimizer, ls=False):
+def run_step(vocab, loader, model, loss_function, optimizer, ls=False):
     model.train()
     losses=[]
     for batch in loader:
@@ -50,8 +60,8 @@ def run_step(config, vocab, loader, model, loss_function, optimizer, ls=False):
         stories_idx = get_story_idx(stories, vocab.stoi['<pad>'])
         model.zero_grad()
         
-        nll_loss = model(stories, queries, stories_idx, ls=ls)
-        loss = loss_function(nll_loss, answers.view(-1))
+        a = model(stories, queries, stories_idx, ls=ls)
+        loss = loss_function(torch.log_softmax(a, dim=1), answers.view(-1))
         losses.append(loss.item())
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 40.0)  # gradient clipping
@@ -59,16 +69,24 @@ def run_step(config, vocab, loader, model, loss_function, optimizer, ls=False):
         
     return np.mean(losses)
 
-def validation(config, vocab, loader, model, loss_function, ls=False):
+def validation(vocab, loader, model, loss_function, ls=False, is_test=False):
     model.eval()
+    total = 0
+    correct = 0
     losses=[]
     for batch in loader:
         stories, queries, answers = batch
         stories_idx = get_story_idx(stories, vocab.stoi['<pad>'])        
-        nll_loss = model(stories, queries, stories_idx, ls=ls)
-        loss = loss_function(nll_loss, answers.view(-1))
+        a = model(stories, queries, stories_idx, ls=ls)
+        loss = loss_function(torch.log_softmax(a, dim=1), answers.view(-1))
         losses.append(loss.item())
-        
+        if is_test:
+            score = torch.eq(a.max(1)[1], answers.view(-1))
+            total += score.size(0)
+            correct += score.sum().item()
+    if is_test:
+        error_rate = (total - correct) / total
+        return np.mean(losses), error_rate
     return np.mean(losses)
         
 def train_model(config, model, vocab, loss_function, optimizer, scheduler, train_loader, valid_loader):
@@ -79,8 +97,8 @@ def train_model(config, model, vocab, loss_function, optimizer, scheduler, train
     start_time = time.time()
     for step in range(config.STEP):
         scheduler.step()
-        train_loss = run_step(config, vocab, train_loader, model, loss_function, optimizer, ls=ls)
-        valid_loss = validation(config, vocab, valid_loader, model, loss_function, ls=ls)
+        train_loss = run_step(vocab, train_loader, model, loss_function, optimizer, ls=ls)
+        valid_loss = validation(vocab, valid_loader, model, loss_function, ls=ls)
         valid_losses.append(valid_loss)
         
         if config.EMPTY_CUDA_MEMORY:

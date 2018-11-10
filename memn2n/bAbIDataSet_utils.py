@@ -65,7 +65,7 @@ class bAbI(object):
     def splits(self, root='../data/QA_bAbI_tasks/en-valid-10k/', task=1, fix_maxlen_story=None, lower=False, support=False, device=None):
         """
         root: dataset path, only can split train/valid/test, default is '../data/QA_bAbI_tasks/en-valid-10k/'
-        task: task number
+        task: task number, if task number = 0 means joint learning for 1 model
         """
         self.paths = [os.path.join(root, 'qa'+str(task)+'_'+x+'.txt') for x in ['train', 'valid', 'test']]
         self.lower = lower
@@ -109,18 +109,25 @@ class bAbIDataset(torchdata.Dataset):
         else:
             self.vocab = vocabulary
         # numerical & add_pad
-        stories = [self.numerical(story) for story in stories]
-        stories = [self.pad_sent(story, self.vocab.stoi['<pad>'], self.maxlen_sent) for story in stories]
-        stories = self.pad_story(stories, self.vocab.stoi['<pad>'], self.maxlen_story, self.maxlen_sent)
-        questions = self.numerical(questions)
-        questions = self.pad_sent(questions, self.vocab.stoi['<pad>'], self.maxlen_query)
-        answers = self.numerical(answers)
+        stories, questions, answers = self._preprocess(stories, questions, answers)
         
         if self.support:
             self.data = list(zip(stories, questions, answers, supports))
         else:
             self.data = list(zip(stories, questions, answers))
-            
+    
+    def _preprocess(self, stories, questions, answers):
+        # numerical & add_pad
+        stories = [self.numerical(story) for story in stories]
+        stories = [self.pad_sent(story, self.vocab.stoi['<pad>'], 
+                                 self.maxlen_sent) for story in stories]
+        stories = self.pad_story(stories, self.vocab.stoi['<pad>'], self.maxlen_story, 
+                                 self.maxlen_sent)
+        questions = self.numerical(questions)
+        questions = self.pad_sent(questions, self.vocab.stoi['<pad>'], self.maxlen_query)
+        answers = self.numerical(answers)
+        return stories, questions, answers
+    
     def _build_vocab(self, stories, questions, answers):
         total_words = set(self.flatten(self.flatten(stories)) + self.flatten(questions) + self.flatten(answers))
         self.vocab.build_vocab(sorted(list(total_words)))
