@@ -1,82 +1,82 @@
-| weight style | method | error rate |
-|--|--|--|
-| adjacent | bow | 0.3158 |
-| adjacent | bow | 0.6128 |
-| adjacent | bow | 0.5273 |
-| adjacent | bow | 0.3167 |
-| adjacent | bow | 0.1153 |
-| adjacent | bow | 0.0882 |
-| adjacent | bow | 0.1274 |
-| adjacent | bow | 0.0426 |
-| adjacent | bow | 0.0911 |
-| adjacent | bow | 0.2300 |
-| adjacent | bow | 0.2527 |
-| adjacent | bow | 0.4818 |
-| adjacent | bow | 0.4054 |
-| adjacent | bow | 0.0323 |
-| adjacent | bow | 0.0000 |
-| adjacent | bow | 0.5181 |
-| adjacent | bow | 0.3789 |
-| adjacent | bow | 0.4974 |
-| adjacent | bow | 0.7296 |
-| adjacent | bow | 0.0000 |
-| adjacent | pe_te | 0.0000 |
-| adjacent | pe_te | 0.0060 |
-| adjacent | pe_te | 0.0614 |
-| adjacent | pe_te | 0.0000 |
-| adjacent | pe_te | 0.0143 |
-| adjacent | pe_te | 0.0100 |
-| adjacent | pe_te | 0.0019 |
-| adjacent | pe_te | 0.0001 |
-| adjacent | pe_te | 0.0071 |
-| adjacent | pe_te | 0.0858 |
-| adjacent | pe_te | 0.0300 |
-| adjacent | pe_te | 0.0000 |
-| adjacent | pe_te | 0.0523 |
-| adjacent | pe_te | 0.0183 |
-| adjacent | pe_te | 0.0000 |
-| adjacent | pe_te | 0.4647 |
-| adjacent | pe_te | 0.4816 |
-| adjacent | pe_te | 0.0628 |
-| adjacent | pe_te | 0.5864 |
-| adjacent | pe_te | 0.0000 |
-| rnnlike | bow | 0.3313 |
-| rnnlike | bow | 0.4257 |
-| rnnlike | bow | 0.5659 |
-| rnnlike | bow | 0.3168 |
-| rnnlike | bow | 0.1606 |
-| rnnlike | bow | 0.1061 |
-| rnnlike | bow | 0.1430 |
-| rnnlike | bow | 0.0420 |
-| rnnlike | bow | 0.1124 |
-| rnnlike | bow | 0.2147 |
-| rnnlike | bow | 0.2586 |
-| rnnlike | bow | 0.4959 |
-| rnnlike | bow | 0.4083 |
-| rnnlike | bow | 0.0000 |
-| rnnlike | bow | 0.0000 |
-| rnnlike | bow | 0.5323 |
-| rnnlike | bow | 0.3909 |
-| rnnlike | bow | 0.3957 |
-| rnnlike | bow | 0.7277 |
-| rnnlike | bow | 0.0000 |
-| rnnlike | pe_te | 0.0000 |
-| rnnlike | pe_te | 0.0468 |
-| rnnlike | pe_te | 0.4190 |
-| rnnlike | pe_te | 0.0000 |
-| rnnlike | pe_te | 0.0198 |
-| rnnlike | pe_te | 0.0364 |
-| rnnlike | pe_te | 0.0992 |
-| rnnlike | pe_te | 0.0243 |
-| rnnlike | pe_te | 0.0463 |
-| rnnlike | pe_te | 0.0762 |
-| rnnlike | pe_te | 0.0000 |
-| rnnlike | pe_te | 0.0000 |
-| rnnlike | pe_te | 0.0357 |
-| rnnlike | pe_te | 0.0000 |
-| rnnlike | pe_te | 0.0000 |
-| rnnlike | pe_te | 0.5128 |
-| rnnlike | pe_te | 0.4972 |
-| rnnlike | pe_te | 0.0693 |
-| rnnlike | pe_te | 0.5888 |
-| rnnlike | pe_te | 0.0000 |
+|task | weight style | method | error rate |
+|--|--|--|--|
+| 1 | adjacent | bow | 0.3158 |
+| 2 | adjacent | bow | 0.6128 |
+| 3 | adjacent | bow | 0.5273 |
+| 4 | adjacent | bow | 0.3167 |
+| 5 | adjacent | bow | 0.1153 |
+| 6 | adjacent | bow | 0.0882 |
+| 7 | adjacent | bow | 0.1274 |
+| 8 | adjacent | bow | 0.0426 |
+| 9 | adjacent | bow | 0.0911 |
+| 10 | adjacent | bow | 0.2300 |
+| 11 | adjacent | bow | 0.2527 |
+| 12 | adjacent | bow | 0.4818 |
+| 13 | adjacent | bow | 0.4054 |
+| 14 | adjacent | bow | 0.0323 |
+| 15 | adjacent | bow | 0.0000 |
+| 16 | adjacent | bow | 0.5181 |
+| 17 | adjacent | bow | 0.3789 |
+| 18 | adjacent | bow | 0.4974 |
+| 19 | adjacent | bow | 0.7296 |
+| 20 | adjacent | bow | 0.0000 |
+| 1 | adjacent | pe_te | 0.0000 |
+| 2 | adjacent | pe_te | 0.0060 |
+| 3 | adjacent | pe_te | 0.0614 |
+| 4 | adjacent | pe_te | 0.0000 |
+| 5 | adjacent | pe_te | 0.0143 |
+| 6 | adjacent | pe_te | 0.0100 |
+| 7 | adjacent | pe_te | 0.0019 |
+| 8 | adjacent | pe_te | 0.0001 |
+| 9 | adjacent | pe_te | 0.0071 |
+| 10 | adjacent | pe_te | 0.0858 |
+| 11 | adjacent | pe_te | 0.0300 |
+| 12 | adjacent | pe_te | 0.0000 |
+| 13 | adjacent | pe_te | 0.0523 |
+| 14 | adjacent | pe_te | 0.0183 |
+| 15 | adjacent | pe_te | 0.0000 |
+| 16 | adjacent | pe_te | 0.4647 |
+| 17 | adjacent | pe_te | 0.4816 |
+| 18 | adjacent | pe_te | 0.0628 |
+| 19 | adjacent | pe_te | 0.5864 |
+| 20 | adjacent | pe_te | 0.0000 |
+| 1 | rnnlike | bow | 0.3313 |
+| 2 | rnnlike | bow | 0.4257 |
+| 3 | rnnlike | bow | 0.5659 |
+| 4 | rnnlike | bow | 0.3168 |
+| 5 | rnnlike | bow | 0.1606 |
+| 6 | rnnlike | bow | 0.1061 |
+| 7 | rnnlike | bow | 0.1430 |
+| 8 | rnnlike | bow | 0.0420 |
+| 9 | rnnlike | bow | 0.1124 |
+| 10 | rnnlike | bow | 0.2147 |
+| 11 | rnnlike | bow | 0.2586 |
+| 12 | rnnlike | bow | 0.4959 |
+| 13 | rnnlike | bow | 0.4083 |
+| 14 | rnnlike | bow | 0.0000 |
+| 15 | rnnlike | bow | 0.0000 |
+| 16 | rnnlike | bow | 0.5323 |
+| 17 | rnnlike | bow | 0.3909 |
+| 18 | rnnlike | bow | 0.3957 |
+| 19 | rnnlike | bow | 0.7277 |
+| 20 | rnnlike | bow | 0.0000 |
+| 1 | rnnlike | pe_te | 0.0000 |
+| 2 | rnnlike | pe_te | 0.0468 |
+| 3 | rnnlike | pe_te | 0.4190 |
+| 4 | rnnlike | pe_te | 0.0000 |
+| 5 | rnnlike | pe_te | 0.0198 |
+| 6 | rnnlike | pe_te | 0.0364 |
+| 7 | rnnlike | pe_te | 0.0992 |
+| 8 | rnnlike | pe_te | 0.0243 |
+| 9 | rnnlike | pe_te | 0.0463 |
+| 10 | rnnlike | pe_te | 0.0762 |
+| 11 | rnnlike | pe_te | 0.0000 |
+| 12 | rnnlike | pe_te | 0.0000 |
+| 13 | rnnlike | pe_te | 0.0357 |
+| 14 | rnnlike | pe_te | 0.0000 |
+| 15 | rnnlike | pe_te | 0.0000 |
+| 16 | rnnlike | pe_te | 0.5128 |
+| 17 | rnnlike | pe_te | 0.4972 |
+| 18 | rnnlike | pe_te | 0.0693 |
+| 19 | rnnlike | pe_te | 0.5888 |
+| 20 | rnnlike | pe_te | 0.0000 |
