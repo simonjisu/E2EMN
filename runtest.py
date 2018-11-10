@@ -11,8 +11,8 @@ def main(train_type, emd=20, device=None):
     config = Config(emd=emd)
     map_location = {'cuda:0':'cpu'} if device is None else None
     write_file = open('test_result.md', 'w', encoding='utf-8')
-    print('| weight style | method | error rate |', file=write_file)
-    print('|--|--|--|', file=write_file)
+    print('|task | weight style | method | error rate |', file=write_file)
+    print('|--|--|--|--|', file=write_file)
     for w_style in weight_styles:
         for method in other_methods:
             for i in range(1, 21):
@@ -23,7 +23,7 @@ def main(train_type, emd=20, device=None):
                 test_loss, error_rate = validation(test.vocab, test_loader, memn2n, loss_f, 
                                                    is_test=True)
                 print('[model] {} | {}, task: {} done!'.format(w_style, method, i))
-                print('| {} | {} | {:.4f} |'.format(w_style, method, error_rate), file=write_file)
+                print('| {} | {} | {} | {:.4f} |'.format(i, w_style, method, error_rate), file=write_file)
     write_file.close()
 
 if sys.argv[1] == '-h':
